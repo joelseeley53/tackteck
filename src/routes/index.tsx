@@ -1,24 +1,66 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import ogImage from "@/assets/og-tacktech.jpg.asset.json";
+import {
+  About,
+  CtaBand,
+  Contact,
+  FiveTs,
+  Footer,
+  Hero,
+  Navbar,
+  Problem,
+  Process,
+  Services,
+  WhoWeServe,
+  WhyTackTech,
+  Work,
+} from "@/components/landing-sections";
+import { getRequestOrigin } from "@/lib/origin.functions";
+
 export const Route = createFileRoute("/")({
+  loader: () => getRequestOrigin(),
   component: Index,
+  head: ({ loaderData }) => {
+    const imageUrl = `${loaderData}${ogImage.url}`;
+    const description = "TackTech designs and builds practical digital systems for organisations, businesses and institutions in Kenya.";
+    return {
+      meta: [
+        { title: "TackTech | Technology with Purpose" },
+        { name: "description", content: description },
+        { property: "og:title", content: "TackTech | Technology with Purpose" },
+        { property: "og:description", content: description },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: "/" },
+        { property: "og:image", content: imageUrl },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: "TackTech | Technology with Purpose" },
+        { name: "twitter:description", content: description },
+        { name: "twitter:image", content: imageUrl },
+      ],
+      links: [{ rel: "canonical", href: "/" }],
+    };
+  },
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <Problem />
+        <Services />
+        <Process />
+        <Work />
+        <WhyTackTech />
+        <WhoWeServe />
+        <FiveTs />
+        <About />
+        <CtaBand />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 }
