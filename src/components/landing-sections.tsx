@@ -61,10 +61,10 @@ const contactSchema = z.object({
 
 type ContactValues = z.infer<typeof contactSchema>;
 
-function SectionHeading({ eyebrow, title, intro }: { eyebrow: string; title: string; intro?: string }) {
+function SectionHeading({ eyebrow, title, intro, dark = false }: { eyebrow: string; title: string; intro?: string; dark?: boolean }) {
   return (
     <div className="mb-10 max-w-2xl">
-      <p className="mb-3 text-xs font-bold uppercase tracking-[0.12em] text-gold">{eyebrow}</p>
+      <p className={`mb-3 text-xs font-bold uppercase tracking-[0.12em] ${dark ? "text-gold-soft" : "text-gold"}`}>{eyebrow}</p>
       <h2 className="font-display text-3xl font-bold leading-tight text-foreground sm:text-4xl">{title}</h2>
       {intro ? <p className="mt-4 text-base leading-7 text-muted-foreground">{intro}</p> : null}
     </div>
@@ -228,7 +228,7 @@ export function Process() {
   return (
     <section id="process" className="bg-navy px-5 py-20 text-on-navy sm:px-8">
       <div className="mx-auto max-w-7xl">
-        <Reveal><SectionHeading eyebrow="How we work" title="From challenge to lasting solution." intro="A considered process keeps every step grounded in your organisation's needs." /></Reveal>
+        <Reveal><SectionHeading eyebrow="How we work" title="From challenge to lasting solution." intro="A considered process keeps every step grounded in your organisation's needs." dark /></Reveal>
         <div className="grid gap-0 border-y border-on-navy/15 sm:grid-cols-2 lg:grid-cols-5">
           {process.steps.map((step, index) => (
             <Reveal key={step.number} delay={index * 0.04}>
