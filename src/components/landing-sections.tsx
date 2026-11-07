@@ -65,8 +65,8 @@ function SectionHeading({ eyebrow, title, intro, dark = false }: { eyebrow: stri
   return (
     <div className="mb-10 max-w-2xl">
       <p className={`mb-3 text-xs font-bold uppercase tracking-[0.12em] ${dark ? "text-gold-soft" : "text-gold"}`}>{eyebrow}</p>
-      <h2 className="font-display text-3xl font-bold leading-tight text-foreground sm:text-4xl">{title}</h2>
-      {intro ? <p className="mt-4 text-base leading-7 text-muted-foreground">{intro}</p> : null}
+      <h2 className={`font-display text-3xl font-bold leading-tight sm:text-4xl ${dark ? "text-on-navy" : "text-foreground"}`}>{title}</h2>
+      {intro ? <p className={`mt-4 text-base leading-7 ${dark ? "text-on-navy/70" : "text-muted-foreground"}`}>{intro}</p> : null}
     </div>
   );
 }
