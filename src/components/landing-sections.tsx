@@ -324,7 +324,7 @@ export function FiveTs() {
         <div className="grid gap-0 sm:grid-cols-2 lg:grid-cols-5">
           {fiveTs.map(({ word, text }, index) => (
             <div key={word} className="border-t border-on-navy/20 py-5 sm:px-4 lg:first:pl-0 lg:last:pr-0">
-              <p className="text-xs font-bold text-gold">0{index + 1}</p>
+              <p className="text-xs font-bold text-gold-soft">0{index + 1}</p>
               <h3 className="mt-2 font-display text-lg font-semibold">{word}</h3>
               <p className="mt-2 text-sm leading-6 text-on-navy/65">{text}</p>
             </div>

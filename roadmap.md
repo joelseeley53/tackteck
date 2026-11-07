@@ -12,4 +12,4 @@
 - [x] Root route: fonts, favicon, Toaster; index route: sections + SEO head with OG tags
 
 ## Remaining
-- [ ] Verify build, desktop and mobile preview, contact form, and contrast
+- [x] Verify build, desktop and mobile preview, contact form, and contrast
