@@ -124,6 +124,8 @@ export function Navbar() {
 
 export function Hero() {
   const featured = work.items[0];
+  if (!featured) return null;
+
   return (
     <section id="home" className="overflow-hidden bg-navy text-on-navy">
       <div className="mx-auto grid min-h-[38rem] max-w-7xl items-center gap-12 px-5 py-14 sm:px-8 md:grid-cols-[1.1fr_0.9fr] md:py-20">
