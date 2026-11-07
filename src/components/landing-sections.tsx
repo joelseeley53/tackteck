@@ -61,12 +61,12 @@ const contactSchema = z.object({
 
 type ContactValues = z.infer<typeof contactSchema>;
 
-function SectionHeading({ eyebrow, title, intro }: { eyebrow: string; title: string; intro?: string }) {
+function SectionHeading({ eyebrow, title, intro, dark = false }: { eyebrow: string; title: string; intro?: string; dark?: boolean }) {
   return (
     <div className="mb-10 max-w-2xl">
-      <p className="mb-3 text-xs font-bold uppercase tracking-[0.12em] text-gold">{eyebrow}</p>
-      <h2 className="font-display text-3xl font-bold leading-tight text-foreground sm:text-4xl">{title}</h2>
-      {intro ? <p className="mt-4 text-base leading-7 text-muted-foreground">{intro}</p> : null}
+      <p className={`mb-3 text-xs font-bold uppercase tracking-[0.12em] ${dark ? "text-gold-soft" : "text-gold"}`}>{eyebrow}</p>
+      <h2 className={`font-display text-3xl font-bold leading-tight sm:text-4xl ${dark ? "text-on-navy" : "text-foreground"}`}>{title}</h2>
+      {intro ? <p className={`mt-4 text-base leading-7 ${dark ? "text-on-navy/70" : "text-muted-foreground"}`}>{intro}</p> : null}
     </div>
   );
 }
@@ -124,6 +124,8 @@ export function Navbar() {
 
 export function Hero() {
   const featured = work.items[0];
+  if (!featured) return null;
+
   return (
     <section id="home" className="overflow-hidden bg-navy text-on-navy">
       <div className="mx-auto grid min-h-[38rem] max-w-7xl items-center gap-12 px-5 py-14 sm:px-8 md:grid-cols-[1.1fr_0.9fr] md:py-20">
@@ -226,7 +228,7 @@ export function Process() {
   return (
     <section id="process" className="bg-navy px-5 py-20 text-on-navy sm:px-8">
       <div className="mx-auto max-w-7xl">
-        <Reveal><SectionHeading eyebrow="How we work" title="From challenge to lasting solution." intro="A considered process keeps every step grounded in your organisation's needs." /></Reveal>
+        <Reveal><SectionHeading eyebrow="How we work" title="From challenge to lasting solution." intro="A considered process keeps every step grounded in your organisation's needs." dark /></Reveal>
         <div className="grid gap-0 border-y border-on-navy/15 sm:grid-cols-2 lg:grid-cols-5">
           {process.steps.map((step, index) => (
             <Reveal key={step.number} delay={index * 0.04}>
@@ -322,7 +324,7 @@ export function FiveTs() {
         <div className="grid gap-0 sm:grid-cols-2 lg:grid-cols-5">
           {fiveTs.map(({ word, text }, index) => (
             <div key={word} className="border-t border-on-navy/20 py-5 sm:px-4 lg:first:pl-0 lg:last:pr-0">
-              <p className="text-xs font-bold text-gold">0{index + 1}</p>
+              <p className="text-xs font-bold text-gold-soft">0{index + 1}</p>
               <h3 className="mt-2 font-display text-lg font-semibold">{word}</h3>
               <p className="mt-2 text-sm leading-6 text-on-navy/65">{text}</p>
             </div>
