@@ -11,3 +11,4 @@
 
 ## Project structure
 - Keep the TackTech single-page marketing experience in section components under `src/components/landing-sections.tsx` and its editable copy in `src/data/content.ts`, so the home route stays a clear composition of sections.
+- Keep the decorative hero network in a lazy-loaded, client-only React Three Fiber module so the marketing page remains SSR-safe.

@@ -12,4 +12,6 @@
 - [x] Root route: fonts, favicon, Toaster; index route: sections + SEO head with OG tags
 
 ## Remaining
-- [x] Verify build, desktop and mobile preview, contact form, and contrast
+- [x] Apply the navy-and-gold redesign while retaining existing sections and copy
+- [x] Add the lazy-loaded decorative 3D network visual to the hero
+- [ ] Verify build and live preview after fixing broken markup
