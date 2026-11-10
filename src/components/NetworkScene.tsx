@@ -1,7 +1,6 @@
 import { useMemo, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import type { Group } from "three";
-import { Vector3 } from "three";
+import { Quaternion, Vector3, type Group } from "three";
 
 const nodes = [
   [-2.8, 0.8, 0],
@@ -58,7 +57,7 @@ function Network() {
         const to = new Vector3(...nodes[end]);
         const direction = new Vector3().subVectors(to, from);
         const midpoint = new Vector3().addVectors(from, to).multiplyScalar(0.5);
-        const quaternion = new Vector3(0, 1, 0).quaternionTo(direction.clone().normalize());
+        const quaternion = new Quaternion().setFromUnitVectors(new Vector3(0, 1, 0), direction.clone().normalize());
         return (
           <mesh key={`${start}-${end}`} position={midpoint} quaternion={quaternion}>
             <cylinderGeometry args={[0.009, 0.009, direction.length(), 5]} />
