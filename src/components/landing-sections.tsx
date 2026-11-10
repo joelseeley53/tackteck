@@ -175,7 +175,7 @@ export function Hero() {
         </motion.div>
         <Reveal className="relative mx-auto w-full max-w-sm md:justify-self-end" delay={0.3}>
           <div className="absolute -left-8 top-14 hidden h-40 w-40 border-l border-t border-gold/40 sm:block" aria-hidden="true" />
-          <motion.div whileHover={reduceMotion ? undefined : { y: -8, rotateY: -4, rotateX: 2 }} transition={{ type: "spring", stiffness: 180, damping: 20 }} className="relative mx-auto w-[min(72%,17rem)] rounded-[2rem] border border-gold/35 bg-navy-soft/90 p-2 shadow-2xl shadow-navy">
+          <motion.div {...(!reduceMotion && { whileHover: { y: -8, rotateY: -4, rotateX: 2 } })} transition={{ type: "spring", stiffness: 180, damping: 20 }} className="relative mx-auto w-[min(72%,17rem)] rounded-[2rem] border border-gold/35 bg-navy-soft/90 p-2 shadow-2xl shadow-navy">
             <div className="overflow-hidden rounded-[1.5rem] bg-muted">
               <img src={featured.image} alt={featured.imageAlt} className="aspect-[9/16] w-full object-cover object-top" />
             </div>
