@@ -384,13 +384,13 @@ export function About() {
             <motion.article whileHover={{ rotateX: 2, rotateY: -2 }} transition={{ type: "spring", stiffness: 180 }} className="border border-gold/20 bg-on-navy/5 p-6 shadow-[inset_0_1px_color-mix(in_oklab,var(--gold)_12%,transparent)] backdrop-blur-md">
               <h3 className="font-display text-xl font-bold text-on-navy">Our vision</h3>
               <p className="mt-4 text-sm leading-7 text-on-navy/70">{about.vision}</p>
-            </article>
+            </motion.article>
           </Reveal>
           <Reveal delay={0.08}>
             <motion.article whileHover={{ rotateX: 2, rotateY: 2 }} transition={{ type: "spring", stiffness: 180 }} className="border border-gold/20 bg-on-navy/5 p-6 shadow-[inset_0_1px_color-mix(in_oklab,var(--gold)_12%,transparent)] backdrop-blur-md">
               <h3 className="font-display text-xl font-bold text-on-navy">Our mission</h3>
               <p className="mt-4 text-sm leading-7 text-on-navy/70">{about.mission}</p>
-            </article>
+            </motion.article>
           </Reveal>
         </div>
       </div>
